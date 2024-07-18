@@ -17,7 +17,7 @@ dotfiles/
 │   │           └── plugins
 │   │               └── init.lua
 │   └── ...
-├── fastfetch/ # Configuración de fastfetch
+├── fastfetch/
 │   └── .config
 │       └── fastfetch
 │           └── config.jsonc
