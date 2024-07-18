@@ -35,7 +35,7 @@ dotfiles/
 │   └── .wezterm.lua
 |── zsh/
 |   └── .zshrc
-...
+└── ...
 ```
 
 Cada subdirectorio contiene archivos de configuración para diferentes aplicaciones y entornos. Los nombres de los archivos y directorios son los que se utilizarán como enlaces simbólicos en tu directorio home.
