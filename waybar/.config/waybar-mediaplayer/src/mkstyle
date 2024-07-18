@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+
+import argparse
+import json
+import math
+import sys
+from functools import partial
+from pathlib import Path
+
+import numpy as np
+
+# Read config file
+fp = Path(sys.argv[0]).parent.resolve() / "config.json"
+if not fp.is_file():
+    print(f"ERROR: Configuration file {fp} not found")
+    sys.exit(1)
+with open(fp, "r") as fh:
+    global config
+    config = json.load(fh)
+assert isinstance(config, dict)
+
+overlay_color = config["overlay_color"]
+surface_color = config["surface_color"]
+interval = config["interval"]
+digits = math.floor(math.log10(interval))
+digits = max(0, math.fabs(digits))
+digits = int(digits)
+print(f"Decimal points: {digits}")
+
+
+def myround(x, y):
+    return str(round(x, y))
+
+
+# Internals
+format_pc = partial(myround, y=digits + 1)
+format_class = partial(myround, y=1)
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output-file", action="store", default="style.css")
+    return parser.parse_args()
+
+
+args = parse_arguments()
+outfp = args.output_file
+print(f"Writing output to {outfp}")
+
+outfh = open(outfp, "w", encoding="utf8")
+
+for i in np.arange(0, 100 + interval, interval):
+    i = float(i)
+    class_ = "perc" + format_class(i).replace(".", "-")
+    i2 = i + (interval / 10)
+    outfh.write(
+        f"""#custom-mediaplayer.{class_} {{
+    background-image: linear-gradient(
+    to right,
+    {overlay_color} {format_pc(i)}%,
+    {surface_color} {format_pc(i2)}%
+    );
+}}\n"""
+    )
+
+outfh.close()
