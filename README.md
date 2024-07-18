@@ -54,7 +54,7 @@ Cada subdirectorio contiene archivos de configuración para diferentes aplicacio
 1. **Clona el repositorio:**
 
    ```bash
-   git clone https://github.com/tu_usuario/dotfiles.git ~/.dotfiles
+   git clone https://github.com/TuTaRdrgZ/dotfiles.git ~/.dotfiles
 2. **Navega al directorio de dotfiles**
    ```bash
    cd ~/.dotfiles
