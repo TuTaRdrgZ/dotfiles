@@ -5,7 +5,7 @@ Este repositorio contiene la configuración personalizada para mi entorno de des
 ## Estructura del Repositorio
 
 El repositorio está organizado de la siguiente manera:
-
+```
 dotfiles/
 ├── nvim/
 │   ├── .config
@@ -35,6 +35,7 @@ dotfiles/
 │   └── .wezterm.lua
 └── zsh/
     └── .zshrc
+```
 
 Cada subdirectorio contiene archivos de configuración para diferentes aplicaciones y entornos. Los nombres de los archivos y directorios son los que se utilizarán como enlaces simbólicos en tu directorio home.
 
@@ -62,7 +63,7 @@ Cada subdirectorio contiene archivos de configuración para diferentes aplicacio
   stow nvim
   stow zsh
   stow wezterm
-  stow . (para instalar todo)
+  stow . # para instalar todo
 ```
 ## Uso
 
