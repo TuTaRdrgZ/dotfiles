@@ -41,7 +41,7 @@ local config = {
 	font_size = 13,
 
 	-- Wayland
-	-- enable_wayland = true
+	 enable_wayland = false,
 
 	-- General
 	--exit_behavior = "CloseOnCleanExit",
