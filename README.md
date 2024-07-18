@@ -77,8 +77,8 @@ Para actualizar la configuración, realiza cambios en los archivos dentro de los
 
 Para eliminar la configuración gestionada por stow, puedes utilizar el comando stow -D seguido del nombre del directorio:
 ```bash
-stow -D bash
-stow -D vim
-stow -D git
+stow -D zsh
+stow -D nvim
+stow -D wezterm
 ```
 Esto eliminara todos los enlaces simbolicos creados por Stow.
