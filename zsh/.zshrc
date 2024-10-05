@@ -4,6 +4,8 @@
 
 fastfetch
 
+# fortune -a | cowsay -f tux
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -33,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 #alias
 alias ls=lsd
-alias tetris="sudo pacman"
+alias sl="cbonsai -lp"
 alias "sudo tetris"="sudo pacman"
 alias open="~/.local/bin/open.sh"
 
@@ -44,3 +46,10 @@ export DEBUGINFOD_URLS=https://debuginfod.archlinux.org
 export PATH=:/home/tuta/.local/bin:$PATH
 export PATH=:/home/tuta/.local/share/pipx/shared/bin/:$PATH
 export PATH=:/home/tuta/.cargo/bin/:$PATH
+export PATH=:/root/.local/bin:$PATH
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/tuta/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/tuta/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

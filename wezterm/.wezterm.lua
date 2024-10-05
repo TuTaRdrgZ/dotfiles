@@ -25,6 +25,7 @@ local config = {
 	adjust_window_size_when_changing_font_size = false,
 	window_background_opacity = 0.99,
 	webgpu_power_preference = 'HighPerformance',
+	enable_kitty_graphics=true,
 	window_padding = {
 		left = 5,
 		right = 5,
@@ -45,6 +46,8 @@ local config = {
 
 	-- General
 	--exit_behavior = "CloseOnCleanExit",
+	enable_tab_bar = false,
+	window_decorations = "NONE",
 	tab_bar_at_bottom = false,
 	exit_behavior_messaging = 'Verbose',
 	status_update_interval = 1000,

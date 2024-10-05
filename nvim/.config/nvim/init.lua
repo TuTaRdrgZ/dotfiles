@@ -15,6 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
@@ -36,6 +37,8 @@ require("lazy").setup({
 })
 
 vim.cmd("colorscheme " .. ftvim.colorscheme)
+
+require("ftvim.utils.modules").learn_to_move()
 
 vim.schedule(function()
 	require("keymaps")
