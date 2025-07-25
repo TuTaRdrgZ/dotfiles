@@ -7,7 +7,7 @@ Personal development environment setup with multiple installation methods.
 For automatic setup:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/master/install.sh | bash
 ```
 
 This method:
