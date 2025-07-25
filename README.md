@@ -190,11 +190,3 @@ brew install stow
 ## 📄 License
 
 MIT License - feel free to use and modify.
-
----
-
-**Choose your installation method:**
-- 🚀 **Quick & Smart**: `curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/main/install.sh | bash`
-- 🎯 **Manual Control**: `git clone && ./stow-install.sh`
-
-⭐ **Star this repo if it helped you!**
