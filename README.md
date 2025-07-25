@@ -187,19 +187,6 @@ sudo apt install stow
 brew install stow
 ```
 
-### Permission Issues
-Use the automatic installer which handles permissions intelligently:
-```bash
-curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/main/install.sh | bash
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Test both installation methods
-4. Submit a pull request
-
 ## 📄 License
 
 MIT License - feel free to use and modify.
