@@ -1,48 +1,26 @@
-# Dotfiles
+# TuTaRdrgZ Dotfiles
 
-Este repositorio contiene la configuración personalizada para mi entorno de desarrollo. Utilizo GNU Stow para gestionar y desplegar estos archivos de configuración. 
+Personal development environment setup with multiple installation methods.
 
-## Estructura del Repositorio
+## 🚀 Quick Installation (Recommended)
 
-El repositorio está organizado de la siguiente manera:
-```
-dotfiles/
-├── nvim/
-│   ├── .config
-│   │   └── nvim
-│   │       ├── init.lua
-│   │       └── lua
-│   │           ├── keymaps.lua
-│   │           ├── options.lua
-│   │           └── plugins
-│   │               └── init.lua
-│   └── ...
-├── fastfetch/
-│   └── .config
-│       └── fastfetch
-│           └── config.jsonc
-├── scripts/
-│   └── .local
-│       └── bin
-│           └── open.sh
-├── wezterm/
-│   ├── .config
-│   │   └── wezterm
-│   │       ├── config
-│   │       │   └── general.lua
-│   │       └── themes
-│   │           └── kanagawa.lua
-│   └── .wezterm.lua
-|── zsh/
-|   └── .zshrc
-└── ...
+For automatic setup:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/main/install.sh | bash
 ```
 
-Cada subdirectorio contiene archivos de configuración para diferentes aplicaciones y entornos. Los nombres de los archivos y directorios son los que se utilizarán como enlaces simbólicos en tu directorio home.
+This method:
+-  **Detects your environment** (educational/home/restricted)
+-  **Handles permissions** automatically (sudo/no-sudo)
+-  **Installs tools locally** when needed
+-  **Works everywhere** (Linux, macOS, containers)
 
-## Instalación
+## 🎯 Manual Installation (Advanced Users)
 
-### Requisitos
+For precise control using GNU Stow:
+
+### Prerequisites
 
 - [GNU Stow](https://www.gnu.org/software/stow/)
 - [Git](https://git-scm.com/)
@@ -50,35 +28,186 @@ Cada subdirectorio contiene archivos de configuración para diferentes aplicacio
 - [Neovim](https://neovim.io/)
 - [FastFetch](https://github.com/fastfetch-cli/fastfetch)
 
-### Pasos
+### Steps
 
-1. **Clona el repositorio:**
-
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/TuTaRdrgZ/dotfiles.git ~/.dotfiles
-2. **Navega al directorio de dotfiles**
-   ```bash
    cd ~/.dotfiles
-3. **Usa Stow para instalar las configuraciones**
-  ```bash
-  stow nvim
-  stow zsh
-  stow wezterm
-  stow . # para instalar todo
+   ```
+
+2. **Install everything:**
+   ```bash
+   ./stow-install.sh
+   ```
+
+3. **Or install specific packages:**
+   ```bash
+   ./stow-install.sh nvim zsh wezterm
+   ```
+
+## 📁 Repository Structure
+
 ```
-## Uso
+dotfiles/
+├── install.sh              # Intelligent auto-installer
+├── stow-install.sh         # GNU Stow installer
+├── nvim/                   # Neovim configuration
+│   └── .config/nvim/
+├── zsh/                    # Zsh configuration
+│   └── .zshrc
+├── wezterm/               # WezTerm configuration
+│   └── .config/wezterm/
+├── fastfetch/             # FastFetch configuration
+│   └── .config/fastfetch/
+├── scripts/               # Custom scripts
+│   └── .local/bin/
+└── configs/               # Auto-installer configs
+    ├── zsh/
+    ├── nvim/
+    └── git/
+```
 
-Una vez que hayas instalado las configuraciones usando stow, los archivos de configuración serán aplicados de inmediato.
-Actualizaciones
+## ⚙️ Configuration Details
 
-Para actualizar la configuración, realiza cambios en los archivos dentro de los subdirectorios correspondientes y luego vuelve a ejecutar stow si es necesario.
+### Neovim
+- Modern Lua configuration
+- Plugin management with lazy.nvim
+- Custom keymaps and options
+- LSP support
 
-## Desinstalación
+### Zsh
+- Oh My Zsh integration
+- Powerlevel10k theme
+- Custom aliases and functions
+- Environment-specific configurations
 
-Para eliminar la configuración gestionada por stow, puedes utilizar el comando stow -D seguido del nombre del directorio:
+### WezTerm
+- Custom themes (Kanagawa)
+- Optimized performance settings
+- Cross-platform compatibility
+
+### FastFetch
+- Custom system information display
+- Beautiful ASCII art
+- Performance metrics
+
+## 🔧 Usage
+
+### Automatic Method
+The intelligent installer sets up everything automatically and adapts to your environment.
+
+### Stow Method
+Each package can be managed individually:
+
 ```bash
-stow -D zsh
+# Install specific configurations
+stow nvim
+stow zsh
+stow wezterm
+
+# Remove configurations
 stow -D nvim
-stow -D wezterm
+stow -D zsh
 ```
-Esto eliminara todos los enlaces simbolicos creados por Stow.
+
+## 🔄 Updates
+
+### Automatic Installer
+```bash
+cd ~/.dotfiles
+git pull
+./install.sh
+```
+
+### Stow Method
+```bash
+cd ~/.dotfiles
+git pull
+./stow-install.sh
+```
+
+## 🌍 Environment Support
+
+- ✅ **Educational environments** (no sudo required)
+- ✅ **Home environments** (full privileges)
+- ✅ **Restricted environments** (safe defaults)
+- ✅ **Containers and VMs**
+- ✅ **Linux** (Arch, Debian, RedHat)
+- ✅ **macOS**
+
+## 🎨 Key Features
+
+### Modern CLI Tools (Auto-installed)
+- **fzf** - Fuzzy finder
+- **ripgrep** - Fast grep
+- **fd** - Fast find
+- **bat** - Better cat
+- **exa** - Modern ls
+- **starship** - Cross-shell prompt
+
+### Development Tools
+- **Neovim** with LSP
+- **Tmux** with TPM
+- **Node.js** via nvm
+- **Git** with delta
+
+## 🔑 Key Aliases
+
+```bash
+# Navigation
+ll          # exa -la --icons --git
+..          # cd ..
+...         # cd ../..
+
+# Git
+g           # git
+ga          # git add
+gc          # git commit -m
+gp          # git push
+gs          # git status
+
+# Development
+v           # nvim
+t           # tmux
+pn          # pnpm
+```
+
+## 🛠️ Troubleshooting
+
+### Missing GNU Stow
+```bash
+# Arch Linux
+sudo pacman -S stow
+
+# Debian/Ubuntu
+sudo apt install stow
+
+# macOS
+brew install stow
+```
+
+### Permission Issues
+Use the automatic installer which handles permissions intelligently:
+```bash
+curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/main/install.sh | bash
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Test both installation methods
+4. Submit a pull request
+
+## 📄 License
+
+MIT License - feel free to use and modify.
+
+---
+
+**Choose your installation method:**
+- 🚀 **Quick & Smart**: `curl -fsSL https://raw.githubusercontent.com/TuTaRdrgZ/dotfiles/main/install.sh | bash`
+- 🎯 **Manual Control**: `git clone && ./stow-install.sh`
+
+⭐ **Star this repo if it helped you!**
